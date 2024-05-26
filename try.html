@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick-up and Drop-off</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #192841; /* Navy Blue */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .location-container {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+            background-color: #FFA500; /* Orange */
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #192841; /* Navy Blue */
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .flip-button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .icon {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="location-container">
+            <label for="pickup-location">Pick-up Location:</label>
+            <input type="text" id="pickup-location" placeholder="Pick-up location">
+            <label for="pickup-date">Date and Time:</label>
+            <input type="datetime-local" id="pickup-date">
+        </div>
+
+        <button class="flip-button" onclick="flipValues()">Flip Locations
+            <span class="icon">↔</span>
+        </button>
+
+        <div class="location-container">
+            <label for="drop-location">Drop Location:</label>
+            <input type="text" id="drop-location" placeholder="Drop location">
+            <label for="drop-date">Date and Time:</label>
+            <input type="datetime-local" id="drop-date">
+        </div>
+    </div>
+
+    <script>
+        function flipValues() {
+            // Swap pick-up and drop-off values
+            const pickupLocation = document.getElementById('pickup-location').value;
+            const pickupDate = document.getElementById('pickup-date').value;
+            const dropLocation = document.getElementById('drop-location').value;
+            const dropDate = document.getElementById('drop-date').value;
+
+            document.getElementById('pickup-location').value = dropLocation;
+            document.getElementById('pickup-date').value = dropDate;
+            document.getElementById('drop-location').value = pickupLocation;
+            document.getElementById('drop-date').value = pickupDate;
+        }
+    </script>
+
+</body>
+</html>
